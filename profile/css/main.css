@@ -1,0 +1,49 @@
+h2{
+    text-align: center;
+    font-family: 'Raleway' , sans-serif;
+}
+body{
+    
+    width: 80%;
+    margin: auto;
+    background-color: whitesmoke;
+}
+hr{
+    background-color: green;
+    height: 2px;
+}
+
+h3{
+    width: 100%;
+    background-color: lightgray;
+}
+
+a{
+    text-align: center;
+}
+
+#ed{
+    border: 1px solid black;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%
+}
+
+table th{
+    border: 1.5px solid burlywood  ;
+    border-radius: 1px;
+    background-color: aquamarine;
+}
+
+#t td{
+    border-bottom: 1px solid black;
+    text-align: center;
+    background-color: blanchedalmond;
+}
+
+#home{
+    font-family: 'Raleway'
+    text-align: center;
+}
