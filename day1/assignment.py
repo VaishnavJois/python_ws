@@ -1,5 +1,5 @@
 #calculate discount
-'''
+
 amt = float(input('Enter bill amount:'))
 
 if amt>=10000:
@@ -12,7 +12,7 @@ net = amt-dis
 print(f'Bill amount : {amt}\nDiscount : {dis}\nNet amount : {net}')
 
 
-'''
+
 #calculate bill
 '''
 #minimum bill is 50
