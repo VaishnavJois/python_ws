@@ -1,0 +1,92 @@
+
+import re
+
+data = "1001 DBMS 20   1002 JS 23    1003 SQL 15"
+lst = re.split("\s+",data)
+print(lst)
+
+-------------------------------------------------------------------------------------------------------------------------
+\s   Returns a match where the string contains a white space character
+\S   Returns a match where the string DOES NOT contain a white space character
++     One or more occurrences
+-------------------------------------------------------------------------------------------------------------------------
+
+Get all subject codes:
+
+data = "1001  DBMS 20 1002 JS 23 1003 SQL 15" 
+lst = re.findall("\d{4}",data)
+
+Get all the subject name:
+lst = re.findall("[A-z]+",data)
+
+-------------------------------------------------------------------------------------------------------------------------
+A set is a set of characters inside a pair of square brackets [] with a special meaning:
+
+[A-z]	Returns a match for any character alphabetically between a and z, lower case OR upper case
+\d	Returns a match where the string contains digits (numbers from 0-9)
+\D             Returns a match where the string DOES NOT contain digits
+{}	Exactly the specified number of occurrences
+-------------------------------------------------------------------------------------------------------------------------
+re.search() vs re.match()
+
+As the name suggests, regex.search() searches for the pattern in a given text.
+
+But unlike findall which returns the matched portions of the text as a list, regex.search() returns a particular match object that contains the starting and ending positions of the first occurrence of the pattern.
+
+Likewise, regex.match() also returns a match object. But the difference is, it requires the pattern to be present at the beginning of the text itself.
+
+data = "House number 198 and pincode 560070"
+res = re.search("\d+", data)
+print(res.start())
+print(res.end())
+print(res.group())
+
+res = res.match("\d+", data)
+
+-------------------------------------------------------------------------------------------------------------------------
+Search and Replace
+
+Another common task is to find all the matches for a pattern, and replace them with a different string. The sub() method takes a replacement value, which can be either a string or a function, and the string to be processed.
+
+data = "blue shape red toy green"
+res = re.sub('(blue|red|green)', data)
+
+-------------------------------------------------------------------------------------------------------------------------
+Input:
+data = "1001 DBMS 20   1002 JS 23    1003 SQL 15"
+output:
+[('1001', 'DBMS', '20'), ('1002', 'JS', '23'), ('1003', 'SQL', '15')]
+
+
+Extact all the word start with A | a and length four or more characters
+
+data = "Lakshman and Amalraj are good friends, Arjun and Aruna also are also friends with Anu"
+lst = re.findall(r'\bA[a-z]{4,}',data,flags=re.IGNORECASE)
+
+\b            Word boundary
+
+-------------------------------------------------------------------------------------------------------------------------
+data = """
+<ul>
+    <li>One</li>
+    <li>Two</li>
+</ul>
+"""
+import re
+res = re.findall("<.*?>(.*)</.*?>",data)
+print(res)
+
+
+Exercises:
+
+1.
+emails = """krishna.t@wipro.com
+lakshman.a@spaneos.com
+lakshman.a@heraizen.edu"""
+
+Get all the domain names: [ wipro, spaneos, heraizen ]
+
+2. Replace all the special characters
+
+data = "Learning- Python, is fun. Python_programming is, easy"
+output: "Learning Python is fun. Python programming is easy"

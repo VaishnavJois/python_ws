@@ -1,0 +1,49 @@
+create table workshop(wid INTEGER PRIMARY KEY, wname TEXT NOT NULL, year INTEGER NOT NULL,company TEXT NOT NULL, status INTEGER NOT NULL);
+
+INSERT into workshop(wid,wname,year,company,status) values(1002,'Data analytics',2019,'Heraizen',1)
+
+
+***********************************************************
+
+SELECT * from emp where mgr is NULL
+
+SELECT * from emp where ename like '%E%'
+
+SELECT * from emp where ename like 'A%'
+
+SELECT * from emp where ename like 'T%R'
+
+SELECT * from emp where ename not like 'A%A'
+
+SELECT * from emp where ename not like 'A%A' AND ename like '_A%'
+
+SELECT * from emp where deptno in (10,20)
+
+SELECT * from emp where deptno not in (10,20)
+
+SELECT * from emp where deptno in (10,20) and sal>=1000 and ename like '%A%'
+
+SELECT * from emp where deptno in (10,20) and sal BETWEEN 1000 and 3000
+
+SELECT * from emp where deptno in (10,20) and sal BETWEEN 1000 and 2000 and deptno in (10,20)
+
+SELECT deptno,count(*) as num_emp_count from emp GROUP by deptno
+
+SELECT deptno,count(*) as num_emp_count,sum(sal) from emp GROUP by deptno
+
+SELECT deptno,count(*) as num_emp_count,sum(sal), avg(sal),max(sal),min(sal) from emp GROUP by deptno
+
+SELECT deptno,job from emp GROUP by deptno,job
+
+SELECT deptno,job,count(*) from emp GROUP by deptno,job
+
+SELECT deptno,job,count(*) from emp GROUP by deptno,job HAVING count(*)>3 
+
+select * from emp where sal > (SELECT avg(sal) from emp)
+
+select * from emp where deptno = (SELECT deptno from emp where ename='BLAKE') and ename != 'BLAKE'
+
+select e.empno,e.ename,e.sal,d.dname,d.loc from emp e INNER JOIN dept d on e.deptno = d.deptno
+
+select * from emp where deptno = (SELECT deptno from dept where loc = 'NEW YORK')
+

@@ -1,0 +1,2 @@
+What is the count of pairs of chromosomes in Human ?,46,45,23,22,C
+What is the height of Mount Everest ?,8868mtr,8868ft,8686mtr,8668mtr,A
